@@ -1,5 +1,7 @@
-package com.ubs.opsit.interviews;
+package com.ubs.opsit.interviews.fixtures;
 
+import com.ubs.opsit.interviews.BerlinClockTimeConverter;
+import com.ubs.opsit.interviews.TimeConverter;
 import com.ubs.opsit.interviews.builder.BerlinClockBuilder;
 import com.ubs.opsit.interviews.builder.ClockBuilder;
 import com.ubs.opsit.interviews.parser.BerlinClockTimeParser;
@@ -46,6 +48,7 @@ public class BerlinClockFixture {
 
     @Then("the clock should look like $")
     public void thenTheClockShouldLookLike(String theExpectedBerlinClockOutput) {
-        assertThat(berlinClock.convertTime(theTime), is(equalTo(theExpectedBerlinClockOutput)));
+        assertThat(berlinClock.convertTime(theTime),
+                is(equalTo(theExpectedBerlinClockOutput)));
     }
 }
