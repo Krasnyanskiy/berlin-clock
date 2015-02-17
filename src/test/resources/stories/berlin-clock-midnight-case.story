@@ -5,7 +5,7 @@ Meta:
 
 Narrative:
     As a clock enthusiast
-    I want to tell the time using the Berlin Clock
+    I want to tell the midnight time using the Berlin Clock
     So that I can increase then number of ways that I can read the time
 
 Scenario: Midnight

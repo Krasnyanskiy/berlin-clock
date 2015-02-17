@@ -6,7 +6,7 @@ Meta:
 Narrative:
     As a time builder guru
     I want to build the Berlin Clock Time using the Clock Builder
-    So that I can ensure that my builder returns a corret time representation
+    So that I can ensure that my builder returns the corret time representation
 
 
 Scenario: I pass the correct time data to parser

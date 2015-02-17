@@ -1,5 +1,8 @@
 package com.ubs.opsit.interviews.entity;
 
+/**
+ * Berlin Clock Time entity. Stores the data of time units.
+ */
 public class BerlinClockTime {
 
     private int minutes;
