@@ -1,8 +1,5 @@
 package com.ubs.opsit.interviews.entity;
 
-/**
- * Berlin Clock Time entity. Stores the data of time units.
- */
 public class BerlinClockTime {
 
     private int minutes;
@@ -48,5 +45,14 @@ public class BerlinClockTime {
         result = 31 * result + seconds;
         result = 31 * result + hours;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BerlinClockTime{" +
+                "minutes=" + minutes +
+                ", seconds=" + seconds +
+                ", hours=" + hours +
+                '}';
     }
 }

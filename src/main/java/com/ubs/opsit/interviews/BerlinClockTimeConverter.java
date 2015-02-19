@@ -4,15 +4,13 @@ import com.ubs.opsit.interviews.builder.ClockBuilder;
 import com.ubs.opsit.interviews.entity.BerlinClockTime;
 import com.ubs.opsit.interviews.parser.TimeParser;
 
-/**
- * An implementation of {@link TimeConverter} class.
- */
 public class BerlinClockTimeConverter implements TimeConverter {
 
     private TimeParser timeParser;
     private ClockBuilder clockBuilder;
 
-    public BerlinClockTimeConverter(TimeParser timeParser, ClockBuilder clockBuilder) {
+    public BerlinClockTimeConverter(TimeParser timeParser,
+                                    ClockBuilder clockBuilder) {
         this.timeParser = timeParser;
         this.clockBuilder = clockBuilder;
     }

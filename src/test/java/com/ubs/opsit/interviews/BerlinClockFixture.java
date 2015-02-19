@@ -1,11 +1,10 @@
-package com.ubs.opsit.interviews.fixtures;
+package com.ubs.opsit.interviews;
 
-import com.ubs.opsit.interviews.BerlinClockTimeConverter;
-import com.ubs.opsit.interviews.TimeConverter;
 import com.ubs.opsit.interviews.builder.BerlinClockBuilder;
 import com.ubs.opsit.interviews.builder.ClockBuilder;
 import com.ubs.opsit.interviews.parser.BerlinClockTimeParser;
 import com.ubs.opsit.interviews.parser.TimeParser;
+import com.ubs.opsit.interviews.validator.TimeValidator;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Before;
@@ -27,7 +26,7 @@ public class BerlinClockFixture {
 
     @Before
     public void setUp() throws Exception {
-        TimeParser parser = new BerlinClockTimeParser();
+        TimeParser parser = new BerlinClockTimeParser(new TimeValidator());
         ClockBuilder builder = new BerlinClockBuilder();
         berlinClock = new BerlinClockTimeConverter(parser, builder);
     }

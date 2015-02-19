@@ -2,9 +2,6 @@ package com.ubs.opsit.interviews.builder;
 
 import static java.util.Arrays.fill;
 
-/**
- * This class is used to build Berlin Clock representation.
- */
 public class BerlinClockBuilder implements ClockBuilder {
 
     private static final char OFF = 'O';
@@ -18,9 +15,6 @@ public class BerlinClockBuilder implements ClockBuilder {
     private char[] fiveMinutesYellowRedLamps = new char[11];
     private char[] oneMinuteYellowLamps = new char[4];
 
-    /**
-     * Prepares the clock initial state.
-     */
     public BerlinClockBuilder() {
         turnClockOff();
     }
@@ -62,9 +56,6 @@ public class BerlinClockBuilder implements ClockBuilder {
                 .toString();
     }
 
-    /**
-     * Fills the lamps with default data.
-     */
     private void turnClockOff() {
         fill(secondsLamp, OFF);
         fill(fiveHoursRedLamps, OFF);
@@ -73,28 +64,12 @@ public class BerlinClockBuilder implements ClockBuilder {
         fill(oneMinuteYellowLamps, OFF);
     }
 
-    /**
-     * Sets the lamps row for given lamp type (hours, minutes, seconds).
-     *
-     * @param lamps        given lamps array
-     * @param on           state of the lamp
-     * @param onLampsCount size of lamps array
-     */
     private void turnOnLampsRow(char[] lamps, char on, int onLampsCount) {
         for (int i = 0; i < onLampsCount; ++i) {
             lamps[i] = on;
         }
     }
 
-    /**
-     * In this first row the 3rd, 6th and 9th lamp are red and indicate the
-     * first quarter. So this method sets these quartered lamps.
-     *
-     * @param lamps        5-minutes lamps array
-     * @param on           state of the lamp
-     * @param specialColor red color for quartered lamp
-     * @return printed lamps
-     */
     private char[] paintQuoterLamps(char[] lamps, char on, char specialColor) {
         int lampsCount = lamps.length;
         for (int i = 0; i < lampsCount; ++i) {
