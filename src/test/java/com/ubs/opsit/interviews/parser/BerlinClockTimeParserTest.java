@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized.Parameters;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static junit.framework.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(value = Parameterized.class)
 public class BerlinClockTimeParserTest {
@@ -32,9 +32,9 @@ public class BerlinClockTimeParserTest {
                 {"10:20:45", new BerlinClockTime(10, 20, 45)},
                 {"10:20:40", new BerlinClockTime(10, 20, 40)},
                 {"15:25:15", new BerlinClockTime(15, 25, 15)},
-                {"00:40:05", new BerlinClockTime(00, 40, 05)},
-                {"11:04:45", new BerlinClockTime(11, 04, 45)},
-                {"07:40:00", new BerlinClockTime(07, 40, 00)}
+                {"20:40:10", new BerlinClockTime(20, 40, 10)},
+                {"11:14:45", new BerlinClockTime(11, 14, 45)},
+                {"17:40:10", new BerlinClockTime(17, 40, 10)}
         });
     }
 
@@ -45,6 +45,10 @@ public class BerlinClockTimeParserTest {
 
     @Test
     public void shouldReturnProperTimeEntity() {
-        assertEquals(timeParser.parse(input), expected);
+        BerlinClockTime entity = timeParser.parse(input);
+
+        assertThat(entity)
+                .isNotNull()
+                .isEqualTo(expected);
     }
 }

@@ -1,5 +1,7 @@
 package com.ubs.opsit.interviews.builder;
 
+import java.util.Arrays;
+
 import static java.util.Arrays.fill;
 
 public class BerlinClockBuilder implements ClockBuilder {
@@ -80,5 +82,42 @@ public class BerlinClockBuilder implements ClockBuilder {
             }
         }
         return lamps;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BerlinClockBuilder that = (BerlinClockBuilder) o;
+
+        if (!Arrays.equals(fiveHoursRedLamps, that.fiveHoursRedLamps)) return false;
+        if (!Arrays.equals(fiveMinutesYellowRedLamps, that.fiveMinutesYellowRedLamps)) return false;
+        if (!Arrays.equals(oneHourRedLamps, that.oneHourRedLamps)) return false;
+        if (!Arrays.equals(oneMinuteYellowLamps, that.oneMinuteYellowLamps)) return false;
+        if (!Arrays.equals(secondsLamp, that.secondsLamp)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = secondsLamp != null ? Arrays.hashCode(secondsLamp) : 0;
+        result = 31 * result + (fiveHoursRedLamps != null ? Arrays.hashCode(fiveHoursRedLamps) : 0);
+        result = 31 * result + (oneHourRedLamps != null ? Arrays.hashCode(oneHourRedLamps) : 0);
+        result = 31 * result + (fiveMinutesYellowRedLamps != null ? Arrays.hashCode(fiveMinutesYellowRedLamps) : 0);
+        result = 31 * result + (oneMinuteYellowLamps != null ? Arrays.hashCode(oneMinuteYellowLamps) : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "BerlinClockBuilder{" +
+                "secondsLamp=" + Arrays.toString(secondsLamp) +
+                ", fiveHoursRedLamps=" + Arrays.toString(fiveHoursRedLamps) +
+                ", oneHourRedLamps=" + Arrays.toString(oneHourRedLamps) +
+                ", fiveMinutesYellowRedLamps=" + Arrays.toString(fiveMinutesYellowRedLamps) +
+                ", oneMinuteYellowLamps=" + Arrays.toString(oneMinuteYellowLamps) +
+                '}';
     }
 }

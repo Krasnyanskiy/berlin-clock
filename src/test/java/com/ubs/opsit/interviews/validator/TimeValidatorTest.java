@@ -7,6 +7,8 @@ import com.ubs.opsit.interviews.exceptions.WrongTimeRangeException;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class TimeValidatorTest {
 
     private TimeValidator timeValidator;
@@ -14,6 +16,31 @@ public class TimeValidatorTest {
     @Before
     public void before() {
         timeValidator = new TimeValidator();
+    }
+
+    @Test
+    public void shouldThrowExceptionWithProperMessage() {
+        try {
+            timeValidator.validate("wrongData");
+        } catch (Exception e) {
+            assertThat(e)
+                    .isInstanceOf(WrongTimeFormatException.class)
+                    .hasMessage("You have specified the time in a wrong format.");
+        }
+    }
+
+    @Test
+    public void shouldThrowWrongTimeRangeExceptionWithProperMessage() {
+        try {
+            timeValidator.validate("10:200:30");
+        } catch (Exception e) {
+            assertThat(e)
+                    .isInstanceOf(WrongTimeRangeException.class)
+                    .hasMessage("The time range should be like this: " +
+                            "hour {0 - 24}, " +
+                            "minutes {0 - 60}, " +
+                            "seconds {0 - 60})");
+        }
     }
 
     @Test(expected = NullTimeException.class)
